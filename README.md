@@ -2,7 +2,7 @@
 
 > 基于Dlib 19.19进行优化，提升其性能，使得能够在移动端运行
 >
-> 代码依赖一个模型下载地址：http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+> 代码依赖一个模型,下载地址：http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
 
 
 
