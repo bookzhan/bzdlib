@@ -433,7 +433,8 @@ namespace dlib
         scanner.load(img);
         std::vector<std::pair<double, rectangle> > dets;
         std::vector<rect_detection> dets_accum;
-        for (unsigned long i = 0; i < w.size(); ++i)
+//        for (unsigned long i = 0; i < w.size(); ++i)
+        dlib::parallel_for(0,w.size(),[&](long i)
         {
             const double thresh = w[i].w(scanner.get_num_dimensions());
             scanner.detect(w[i].get_detect_argument(), dets, thresh + adjust_threshold);
@@ -445,7 +446,7 @@ namespace dlib
                 temp.rect = dets[j].second;
                 dets_accum.push_back(temp);
             }
-        }
+        });
 
         // Do non-max suppression
         final_dets.clear();
